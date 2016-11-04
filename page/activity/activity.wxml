@@ -3,7 +3,7 @@
 <block wx:for-items="{{pageData}}" wx:for-index="i">
     <image
         style="width: 100%; height: 30%; background-color: #eeeeee;" 
-        mode="aspectFit" src="{{scrollbmp[i]}}" bindtap="activityDetail">
+        mode="aspectFit" src="{{scrollbmp[i]}}" data-activity-idx="{{i}}" bindtap="activityDetail">
     </image>
     <view class="mask">
         <text class="cover-title">{{pageData[i].title}}</text>
