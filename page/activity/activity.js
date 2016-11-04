@@ -73,10 +73,11 @@ Page({
   	},
   
     activityDetail:function(event) {
-	    console.log("activityDetail..."+event)
+	    console.log("activityDetail..."+event.target.dataset.activityIdx)
+	    var id=event.target.dataset.activityIdx;
 	    
 	    wx.navigateTo({ // test only, can't link external address
-	        url: '../me/me'
+	        url: '../html5/html5?id='+id
 	    })
     },
     
@@ -99,7 +100,7 @@ function dynamicFillPage() {
 
 		/**
 		 * start:2016-10-02  ; end: 2016-10-06
-		 * ==> start: 10.02  ;   end: 10.06   ;  days: 10.02-10.06 5 æ—¥
+		 * ==> start: 10.02  ;   end: 10.06   ;  days: 10.02-10.06 5 æ—?
 		 */
 		if (this.data.curpageData[i].endDate.indexOf("-") != -1) {
 			var tmpenddate = this.data.curpageData[i].endDate.split("-");
@@ -112,9 +113,9 @@ function dynamicFillPage() {
 		}	
 
 		if (tmpenddate)
-			var tmpdays = tmpstartdate[1] + "." + tmpstartdate[2] + "-" + tmpenddate[1] + "." + tmpenddate[2] + " " + " " + intervaldate + "æ—¥";
+			var tmpdays = tmpstartdate[1] + "." + tmpstartdate[2] + "-" + tmpenddate[1] + "." + tmpenddate[2] + " " + " " + intervaldate + "æ—?;
 		else
-			var tmpdays = tmpstartdate[1] + "." + tmpstartdate[2] + " 1 æ—¥";
+			var tmpdays = tmpstartdate[1] + "." + tmpstartdate[2] + " 1 æ—?;
 		console.log(i+"..dynamicFillPage...tmpdays="+tmpdays)	
 
 		/**
@@ -123,7 +124,7 @@ function dynamicFillPage() {
 		if (this.data.curpageData[i].budget == 0) {	
 			var tmpbudget = 'å…è´¹';
 		} else {
-			var tmpbudget = this.data.curpageData[i].budget + ' å…ƒ /äºº';
+			var tmpbudget = this.data.curpageData[i].budget + ' å…?/äº?;
 		}
 		/**
 		 * update data
